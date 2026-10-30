@@ -185,6 +185,5 @@ def test_path_type(runner, cls, expect):
     assert result.exception is None
     assert result.return_value == expect
 
-
 def test_path_converted_type_parameter_at_runtime():
     assert t.get_args(click.Path[pathlib.Path]) == (pathlib.Path,)

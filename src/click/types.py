@@ -49,7 +49,7 @@ if t.TYPE_CHECKING:
     _PathT_co = te.TypeVar(
         "_PathT_co", covariant=True, default="str | bytes | os.PathLike[str]"
     )
-elif sys.version_info >= (3, 13):
+elif sys.version_info >= (3,13):
     _PathT_co = t.TypeVar(
         "_PathT_co", covariant=True, default=str | bytes | os.PathLike[str]
     )
@@ -1155,9 +1155,8 @@ class Path(ParamType[_PathT_co, str | os.PathLike[str]], t.Generic[_PathT_co]):
                 rv = os.fsencode(value)
             else:
                 rv = path_type(value)
-
         return t.cast("_PathT_co", rv)
-
+        
     def convert(
         self,
         value: str | os.PathLike[str],
